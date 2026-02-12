@@ -1,15 +1,27 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner in = new Scanner(System.in);
+        double cost = 0.0;
+        final double shipping = 0.02;
+        double salesTax = 0;
+        double finalCost = 0;
+        String enterPlease = "Enter the cost of your sale: ";
+        String trash = "";
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.print(enterPlease);
+        cost = in.nextDouble();
+
+        if(cost >= 100)
+        {
+            System.out.println("Congratulations, you qualify for free shipping! The final cost of your purchase is " + cost);
+        }
+        else if(cost < 100)
+        {
+            salesTax = shipping * cost;
+            finalCost = salesTax + cost;
+            System.out.println("There is a 2% tax on totals less than $100. The tax for your sale was " + salesTax + " dollars, which brings your total cost to " + finalCost);
         }
     }
 }
